@@ -1,0 +1,73 @@
+<% include ../partials/header %>
+    
+    <div class= "container">
+       <div class= "row">
+           <div class= "col-md-3">
+               <p class= "lead">Tourspot</p>
+               <ul class= "list-group">
+                   <li class= "list-group-item active">Info 1</li>
+                   <li class= "list-group-item">Info 2</li>
+                   <li class= "list-group-item">Info 3</li>
+               </ul>
+           </div>
+           <div class= "col-md-9">
+               <div class= "card mt-5">
+                   <img class= "card-img-top" src="<%= tourspot.image %>" alt="">
+                   <div class= "card-body">
+                      <div class= "d-flex justify-content-between">
+                          <h6 class= "card-title"><a href=""><%= tourspot.name %></a></h6>
+                           <h6>$9.00/night</h6>
+                      </div>
+                        <p class= "card-text">
+                        <%= tourspot.description %></p>
+                        <% if(currentUser && tourspot.author.id.equals(currentUser._id)){ %>
+                        <div class= "row">
+                            <div class= "col-xl-3 col-lg-4 col-md-6">
+                            <a class= "btn btn-sm btn-outline-light btn-block mb-2" href="/tourspots/<%= tourspot._id %>/edit">Edit Campground</a>
+                            </div>
+                            <div class="col-xl-3 col-lg-4 col-md-6">
+                            <form class= "form-inline" action="/tourspots/<%= tourspot._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-sm btn-outline-light btn-block mb-2">Delete Campground</button>
+                            </form>
+                            </div>
+                        </div>
+                        <% } %>
+                           <div class= "text-right">
+                            <span><em>submitted by: <%= tourspot.author.username %></em></span>
+                            </div>
+                   </div>
+               </div>
+               <div class= "card mt-5">
+                   <div class= "card-body">
+                       <form action="/tourspots/<%= tourspot._id %>/comments" method="POST">
+                           <div class= "input-group mb-3">
+                               <input class="form-control" type="text" name="comment[text]" placeholder= "Add your comment...">
+                               <div class="input-group-append">
+                                   <button class="btn btn-md btn-success">Comment</button>
+                               </div>
+                           </div>
+                       </form>
+                       <div class="list-group">
+                        <% tourspot.comments.forEach(function(comment){ %>
+                            <div class="flex-column align-items-start form-control">
+                                <div class="d-flex justify-content-between">
+                                    <a href="#" class="mb-1"><strong><%= comment.author.username %></strong></a>
+                                    <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                                        <form class= "form-inline" action="/tourspots/<%= tourspot._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                            <a class="btn btn-xs btn-success" href="/tourspots/<%= tourspot._id %>/comments/<%= comment.id %>/edit">Edit</a>
+                                            <button class= "btn btn-xs btn-danger">Delete</button>
+                                        </form>
+                                    <% } %>
+                                </div>
+                                <p><%= comment.text %></p>
+                                <small class="float-right"><strong>3 days ago</strong></small>
+                            </div>
+                        <% }) %>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+
+<% include ../partials/footer %>

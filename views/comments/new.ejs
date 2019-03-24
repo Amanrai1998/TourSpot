@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+    <div class="container"> 
+            <h3 id= "form-heading">Add a Comment to <%= tourspot.name %></h3>
+            <form action="/tourspots/<%= tourspot._id %>/comments" method="POST">
+               <div id= "form-align">
+                   <div class="form-group">
+                        <input class="form-control " type="text" name="comment[text]" placeholder= "Comment">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-md btn-primary btn-block">Submit</button>
+                    </div>
+                    <a href="/tourspots">Go back to Campgrounds</a>
+                </div>
+            </form>
+    </div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,99 @@
+html{
+    min-height: 100%;
+}
+p{
+    font-size: 0.9em;
+}
+.lead,#form-heading{
+    color: white;
+}
+#imgs{
+    max-width: inherit;
+}
+body{
+    min-height: 100%;
+    background: linear-gradient(135deg,rgba(2, 61, 33,0.9),rgba(2, 61, 33, 1),rgba(2, 61, 33,0.9));
+}
+#text{
+    height: 200px;
+}
+.container{
+    padding: 0 15px;
+}
+.flash{
+    padding: 30px 15px;
+}
+a:hover{
+    text-decoration: none;
+}
+#form-heading{
+    text-align: center;
+}
+#form-align{
+    width: 40%;
+    margin: 30px auto;
+}
+.form-inline{
+    display: inline;
+}
+.btn-xs {
+    padding: .25rem .5rem;
+    font-size: .600rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+.main-nav{
+    background-color: #0b2d1d;
+}
+.navbar-dark .navbar-nav .nav-link{
+    color: rgba(237, 244, 255, .7);
+}
+.navbar-dark .navbar-nav .nav-link:hover,.navbar-dark .navbar-brand:hover {
+    color: rgb(237, 244, 255);
+}
+.navbar-dark .navbar-brand {
+    color: rgba(237, 244, 255, .9);
+}
+.navbar-collapse{
+    flex-grow: 0;
+}
+.jumbotron{
+    text-align: center;
+    background-color: rgba(255, 255, 255,0.1);
+    color: #fff;
+    animation: jumboanim 1.5s;
+}
+.row{
+    animation: cardanim 1.5s;
+}
+.card{
+    background-color: rgba(255, 255, 255,0.1);
+    color: #fff;
+}
+.card.index-card{
+    transition: transform 0.3s ease-out,background-color 0.3s ease-in;
+}
+.card.index-card:hover{
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255,0.2);
+}
+@keyframes jumboanim {
+    0%{
+        opacity: 0;
+        transform: translate(-50%) rotateY(-100deg);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0) rotateY(0deg);
+    }
+}
+@keyframes cardanim {
+    0%{
+        opacity: 0;
+        transform: translate(50%) rotateY(100deg);
+    }
+    100%{
+        opacity: 1;
+        transform: translate(0) rotateY(0);
+    }
+}

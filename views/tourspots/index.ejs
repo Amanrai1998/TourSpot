@@ -1,0 +1,25 @@
+<% include ../partials/header %>  <!-- .. to go to previous directory -->
+
+    <div class="container">
+        <header class="jumbotron">
+            <h1>Welcome To TourSpot!</h1>
+            <p>View our hand-picked tourspots from all over the world</p>
+            <a class="btn btn-primary btn-md" href="/tourspots/new">Add New Tourspot</a>
+        </header>
+
+        <div class="row">
+            <% tourspots.forEach(function(tourspot){ %>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card index-card mb-4">
+                    <img class= "card-img-top" src="<%= tourspot.image %>" alt="" >
+                    <div class="card-body text-center">
+                        <h6 class="card-title"><%= tourspot.name %></h6>
+                        <a class="btn btn-primary" href= "/tourspots/<%= tourspot._id %>">More info</a>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+        </div>
+    </div>
+    
+<% include ../partials/footer %>

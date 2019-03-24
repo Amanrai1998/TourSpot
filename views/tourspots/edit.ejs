@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+
+    <div class="container"> 
+            <h3 id= "form-heading">Create a New Campground</h3>
+            <form action="/tourspots/<%= tourspot.id %>?_method=PUT" method="POST">
+               <div id= "form-align">
+                   <div class="form-group">
+                        <input class="form-control " type="text" name="tourspot[name]" placeholder= "name" value= "<%= tourspot.name %>">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="tourspot[image]" placeholder= "image url" value= "<%= tourspot.image %>">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" name="tourspot[description]" id="text" placeholder="Write about tourspot...."><%= tourspot.description %></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-md btn-primary btn-block">Update</button>
+                    </div>
+                    <a href="/tourspots">Go back to Tourspots</a>
+                </div>
+            </form>
+    </div>
+
+<% include ../partials/footer %>
