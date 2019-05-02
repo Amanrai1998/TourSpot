@@ -15,7 +15,7 @@ var express         = require("express"),
 var indexRoutes         = require("./routes/index"),
     tourspotRoutes   = require("./routes/tourspots"),
     commentRoutes       = require("./routes/comments");
-
+console.log(process.env.DATABASE);
 mongoose.connect(process.env.DATABASE,{ useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
